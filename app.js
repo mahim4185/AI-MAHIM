@@ -955,7 +955,7 @@ function firebaseErrorText(error) {
     'auth/popup-closed-by-user': 'Google sign-in window বন্ধ করা হয়েছে।',
     'auth/popup-blocked': 'Browser popup আটকে দিয়েছে; popup অনুমতি দিয়ে আবার চেষ্টা করুন।'
   };
-  return messages[code] || 'Authentication সম্পন্ন হয়নি। Firebase provider ও authorized domain যাচাই করুন।';
+  return `${messages[code] || 'Authentication সম্পন্ন হয়নি।'} (code: ${code || 'unknown'})`;
 }
 async function loadUserUsage() {
   if (!firebaseUser || !firebaseDb || !firebaseFirestoreApi) {
