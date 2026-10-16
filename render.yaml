@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: mahim-ai
+    runtime: python
+    plan: free
+    buildCommand: python -m py_compile server.py
+    startCommand: python server.py
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: REQUIRE_AUTH
+        value: "true"
+      - key: FIREBASE_WEB_API_KEY
+        sync: false
